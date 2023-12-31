@@ -1,4 +1,8 @@
 import { Server } from "socket.io";
+import { Redis } from "ioredis";
+
+const pub = new Redis();
+const sub = new Redis();
 
 class SocketService {
   private _io: Server;
@@ -22,6 +26,7 @@ class SocketService {
 
       socket.on("event:message", async ({ message }: { message: string }) => {
         console.log("New Message Rec", message);
+        //publish the message to redis
       });
     });
   }
