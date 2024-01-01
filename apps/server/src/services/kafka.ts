@@ -2,7 +2,7 @@ import { Kafka, Producer } from "kafkajs";
 import fs from "fs";
 import path from "path";
 const kafka = new Kafka({
-  brokers: ["kafka-6b9500c-sawairohan90-8203.a.aivencloud.com"],
+  brokers: ["kafka-6b9500c-sawairohan90-8203.a.aivencloud.com:12109"],
   ssl: {
     ca: [fs.readFileSync(path.resolve("./ca.pem"), "utf-8")],
   },
