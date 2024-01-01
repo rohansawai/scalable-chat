@@ -2,7 +2,7 @@ import { Server } from "socket.io";
 import { Redis } from "ioredis";
 import { log } from "console";
 import prismaClient from "./prisma";
-import  {produceMessage} from "./kafka";
+import { produceMessage } from "./kafka";
 
 const pub = new Redis({
   host: "redis-6b15312-sawairohan90-8203.a.aivencloud.com",
@@ -49,7 +49,6 @@ class SocketService {
         console.log("new message from redis", message);
         await produceMessage(message);
         console.log("message produced to Kafka Broker");
-        
       }
     });
   }
